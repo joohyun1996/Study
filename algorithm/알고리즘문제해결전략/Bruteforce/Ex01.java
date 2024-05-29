@@ -44,8 +44,6 @@ public class Ex01 {
     }
 
     public static int sumRecursiveTail(int n, int total) {
-        N_PARENT = n;
-        TOTAL_PARENT = total;
         if (n == 0) return total;
         return sumRecursiveTail(n - 1, total + n);
     }
