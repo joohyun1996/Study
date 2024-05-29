@@ -3,7 +3,6 @@ package ex01;
 import java.util.Timer;
 
 public class Ex01 {
-    public static long N_PARENT, TOTAL_PARENT;
     public static void main(String[] args) {
         long startTime, endTime;
 
