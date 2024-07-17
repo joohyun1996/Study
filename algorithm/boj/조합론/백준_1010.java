@@ -16,8 +16,10 @@ public class Comb05 {
             int n = Integer.parseInt(strs[1]);
             int k = Integer.parseInt(strs[0]);
 
-            long up = 1;
-            long down = 1;
+            double up = 1;
+            double down = 1;
+
+            if(k > (n/2)) k = n-k;
 
             for (int j = n; j > (n - k); j--) {
                 up *= j;
@@ -27,7 +29,7 @@ public class Comb05 {
                 down *= j;
             }
 
-            bw.write(up / down + "\n");
+            bw.write((long) (up / down) + "\n");
         }
         bw.flush();
         bw.close();
