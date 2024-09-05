@@ -77,3 +77,66 @@ public class Backtracking7 {
         return tmp;
     }
 }
+
+/* 간결화
+package backtracking;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Backtracking7 {
+    static ArrayList<Integer> numericList = new ArrayList<>();
+    static int[] operatorArr = new int[4];
+    static ArrayList<Integer> ansList = new ArrayList<>();
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine().trim());
+
+        String[] strs = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            numericList.add(Integer.parseInt(strs[i]));
+        }
+        strs = br.readLine().split(" ");
+        for (int i = 0; i < 4; i++) {
+            operatorArr[i] = Integer.parseInt(strs[i]);
+        }
+        dfs(1, numericList.get(0));
+
+        Collections.sort(ansList);
+        System.out.println(ansList.get(ansList.size() - 1));
+        System.out.println(ansList.get(0));
+    }
+
+    public static void dfs(int index, int currentResult) {
+        if (index == numericList.size()) {
+            ansList.add(currentResult);
+            return;
+        }
+
+        for (int i = 0; i < 4; i++) {
+            if (operatorArr[i] > 0) {
+                operatorArr[i]--;
+                switch (i) {
+                    case 0:
+                        dfs(index + 1, currentResult + numericList.get(index));
+                        break;
+                    case 1:
+                        dfs(index + 1, currentResult - numericList.get(index));
+                        break;
+                    case 2:
+                        dfs(index + 1, currentResult * numericList.get(index));
+                        break;
+                    case 3:
+                        dfs(index + 1, currentResult / numericList.get(index));
+                        break;
+                }
+                operatorArr[i]++;
+            }
+        }
+    }
+}
+*/
