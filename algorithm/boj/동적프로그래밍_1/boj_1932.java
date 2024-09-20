@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-// boj 2579
+// boj 1932
 
 /**
  * 쉬운 형태의 dp 프로그래밍
