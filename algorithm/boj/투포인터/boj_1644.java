@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class tp4 {
     public static int SIZE = 4000000;
-    static boolean[] chk = new boolean[SIZE];
-    static ArrayList<Integer> primeList = new ArrayList<>();
+    public static boolean[] chk = new boolean[SIZE];
+    public static ArrayList<Integer> primeList = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
