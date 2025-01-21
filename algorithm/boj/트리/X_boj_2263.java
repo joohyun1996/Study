@@ -33,20 +33,37 @@ public class tree05 {
             System.out.printf(i + " ");
         }
     }
-    public static void getPreOrder(int iOS, int iOE, int pOS, int pOE, int start){
+    public static void getPreOrder(int iOS, int iOE, int pOS, int pOE, int start){ // inOrder(start, end), postOrder(start, end), start(preOrder index)
         if(iOS <= iOE && pOS <= pOE){
-            preOrder[start] = postOrder[pOE];
+            preOrder[start] = postOrder[pOE]; // 루트노드 찾아서 preOrder의 맨 처음으로 넣기
 
             int position = iOS;
             for (int i = iOS; i <= iOE; i++) {
-                if (inOrder[i] == postOrder[pOE]){
+                if (inOrder[i] == postOrder[pOE]){ // 이 과정을 통해 inOrderTraversal에서 루트노드 위치를 찾고, 해당 위치로 재귀탐색
                     position = i;
                     break;
                 }
             }
 
+            /**
+             * 왼쪽 서브트리 탐색 ( Inorder(시작위치 그대로, 노드 -1), PostOrder(시작위치, 시작위치 + (노드위치 - Inorder 시작위치) -1), start + 1)
+             * postOrder의 끝나는 위치는 왼쪽 서브트리의 크기만큼 같아야 한다
+             */
             getPreOrder(iOS, position-1, pOS, pOS + position - iOS - 1, start + 1);
-            getPreOrder(position + 1, iOE, pOS + position - iOS, pOE - 1, start + position - iOS + 1);
+            /**
+             * 오른쪽 서브트리 탐색 (Inorder(노드+1, 마지막 인덱스) , PostOrder(시작위치 + (노드위치 - IOS 시작위치), 마지막 인덱스 -1 (마지막 위치는 루트노드니까), start + (노드 - 시작) + 1))
+             */
+            getPreOrder(position + 1, iOE, pOS + (position - iOS), pOE - 1, start + position - iOS + 1);
+
+            /* 예시
+            inOrder    = [4, 2, 5, 1, 6, 3, 7]
+            postOrder  = [4, 5, 2, 6, 7, 3, 1]
+
+            postOrder[6] = 1 → 루트 노드 = 1
+	        inOrder에서 1의 위치 = 3
+	    	왼쪽 서브트리: inOrder[0:2], postOrder[0:2]
+	    	오른쪽 서브트리: inOrder[4:6], postOrder[3:5]
+             */
         }
     }
 }
