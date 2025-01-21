@@ -56,10 +56,10 @@ public class tree05 {
             getPreOrder(position + 1, iOE, pOS + (position - iOS), pOE - 1, start + position - iOS + 1);
 
             /* 예시
-            inOrder    = [4, 2, 5, 1, 6, 3, 7]
-            postOrder  = [4, 5, 2, 6, 7, 3, 1]
+            	inOrder    = [4, 2, 5, 1, 6, 3, 7]
+            	postOrder  = [4, 5, 2, 6, 7, 3, 1]
 
-            postOrder[6] = 1 → 루트 노드 = 1
+            	postOrder[6] = 1 → 루트 노드 = 1
 	        inOrder에서 1의 위치 = 3
 	    	왼쪽 서브트리: inOrder[0:2], postOrder[0:2]
 	    	오른쪽 서브트리: inOrder[4:6], postOrder[3:5]
