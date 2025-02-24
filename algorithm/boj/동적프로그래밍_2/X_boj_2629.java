@@ -9,11 +9,11 @@ import java.util.Arrays;
 
 /**
  * 2차원 boolean dp배열을 이용해서
- * 모든 추와 무게를 방문한다. 또한 방문시 
- * 1) 방문하지 않는다
- * 2) 방문했으면 기존 값에 더한다
- * 3) 기존 값에서 빼본다
- * 를 반복하고, 최종 구해야 하는 무게는 [size][curr]에서 t/f를 구한다
+ * 모든 추와 무게를 방문한다. 또한 방문시
+ * 1) 방문하지 않는다 dp[i][j] = dp[i-1][j]
+ * 2) 방문했으면 기존 값에 더한다 dp[i][j + weight[i-1]] = true;
+ * 3) 기존 값에서 빼본다 dp[i][j - weight[i-1]] = true; or dp[i][Math.abs(j - weight[i-1])] = true;
+ * 를 반복하고, 최종 구해야 하는 무게는 dp[size][i]에서 t/f를 구한다
  */
 public class dp04 {
     public static void main(String[] args) throws IOException {
