@@ -16,6 +16,11 @@ import java.util.StringTokenizer;
  * j => 종료지점. 크기는 len + i - 1; (항상 i 보다 크고 n 보다 작음)
  * k -> i와 j 사이 반복하면서 dp[i][k] + dp[k+1][j] + 부분합 구하기 를 맡는다
  */
+
+/**
+ * 전체적인 문제 푸는 감은 찾았는데, 점화식 구할때 arr[i][0] * arr[j][1] * arr[k][1] 부분을 틀림
+ * 해당 점화식만 잘 계산하면 될듯
+ */
 public class dp02 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
