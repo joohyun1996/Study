@@ -14,6 +14,7 @@ import java.util.StringTokenizer;
  * 따라서 갔던길을 기억하는 dp배열을 만들고, 방문했던 길이면 해당 값을 return. 도착지에 도달하면 -1 return
  * dp[0][0]은 결국 모든 길로 가는 방법의 수를 담게된다. 반대로 dp[n-1][m-1]에 인접한 인덱스는 1만 담게 된다.
  * 처음 만나보는 유형의 문제라 어려웠다.
+ * 슬프게도 다시 풀었지만 틀렸다. DP 점화식에 대한 이해가 좀 더 필요할 듯 하다
  */
 public class dp03 {
     static int[][] map, dp;
